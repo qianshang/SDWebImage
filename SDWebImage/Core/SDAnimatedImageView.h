@@ -106,6 +106,12 @@ NS_SWIFT_UI_ACTOR
  @note This is useful for some cases, for example, always specify NSDefaultRunLoopMode, if you want to pause the animation when user scroll (for Mac user, drag the mouse or touchpad)
  */
 @property (nonatomic, copy, nonnull) NSRunLoopMode runLoopMode;
+
+/**
+ 自定义图片更新处理
+ */
+@property (nonatomic, copy, nullable) UIImage * _Nonnull (^customHandleFrame)(UIImage * _Nonnull frame, NSUInteger current);
+
 @end
 
 #endif

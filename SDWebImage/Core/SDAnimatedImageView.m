@@ -172,7 +172,11 @@
         self.player.animationFrameHandler = ^(NSUInteger index, UIImage * frame) {
             @strongify(self);
             self.currentFrameIndex = index;
-            self.currentFrame = frame;
+            if (frame && self.customHandleFrame) {
+                self.currentFrame = self.customHandleFrame(frame, index);
+            } else {
+                self.currentFrame = frame;
+            }
             [self.imageViewLayer setNeedsDisplay];
         };
         self.player.animationLoopHandler = ^(NSUInteger loopCount) {
